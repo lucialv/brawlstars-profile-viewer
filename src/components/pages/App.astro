@@ -1,0 +1,20 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BotonReact from '../../components/button.jsx';
+import Profile from '../../components/profile.jsx';
+import LanguageSelector from '../../components/LanguageSelector.astro';
+import { getI18N } from "../../i18n"
+
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
+---
+
+<Layout title={i18n.SEO.TITLE.HOME} description='La pagina de dotacio'>
+	<div class="flex mt-8 items-center justify-center gap-8">
+		<BotonReact nombre={i18n.TEST} client:only="react" />
+		<LanguageSelector />
+	</div>
+	<div class="flex mt-8 items-center justify-center gap-8">
+		<Profile client:only="react" />
+	</div>
+</Layout>
